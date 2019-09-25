@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { getPhotoData, renderCards} from './AppHelper'
 
 import Card from './Card';
 import './App.css';
@@ -15,29 +15,13 @@ class App extends Component {
       favourites: []
     }
   }
-
-  async getPhotoData() { 
-    return {} // Get your data from a url here
-  }
-  renderCards(photos) {
-    return [] // put your photos here
-  }
-
   async componentDidMount() {
-    const data = await this.getPhotoData();
+    const data = await getPhotoData();
 
     this.setState({
       photos: data.data.data.results,
       loading: false
     })
-  }
-
-  renderCard(photo) {
-    return (
-      <div className="col-sm-4">
-        <Card photo={photo} />
-      </div>
-    )
   }
 
   render() {
@@ -50,7 +34,7 @@ class App extends Component {
         <div className="container">
           <div className="row">
             {
-              this.renderCards(this.state.photos)
+              renderCards(this.state.photos)
             }
           </div>
         </div>
