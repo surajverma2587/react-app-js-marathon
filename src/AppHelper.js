@@ -6,7 +6,7 @@ const getPhotoData = async () => {
     return {} // Get data from the server
   }
 const renderCards = (photos) => {
-    return // create map of rendered cards
+    return []// create map of rendered cards
 }
 
 const renderCard= (photo) =>  {
