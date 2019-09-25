@@ -16,8 +16,15 @@ class App extends Component {
     }
   }
 
+  async getPhotoData() { 
+    return {} // Get your data from a url here
+  }
+  renderCards(photos) {
+    return [] // put your photos here
+  }
+
   async componentDidMount() {
-    const data = await axios.get('https://mol9bx2gs8.execute-api.us-east-1.amazonaws.com/test/api/photos')
+    const data = await this.getPhotoData();
 
     this.setState({
       photos: data.data.data.results,
@@ -43,7 +50,7 @@ class App extends Component {
         <div className="container">
           <div className="row">
             {
-              this.state.photos.map(photo => this.renderCard(photo))
+              this.renderCards(this.state.photos)
             }
           </div>
         </div>
